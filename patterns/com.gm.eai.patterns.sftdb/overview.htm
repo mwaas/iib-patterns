@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" type="text/css" href="./css/pattern.css"/>
+        <title>Pattern Specification</title>
+    </head>
+    <body>
+        <h1 class="topictitle1">Pattern Specification</h1>
+        <div>
+            <p class="shortdesc"></p>
+        </div>
+        <p>This is a Single File to DB Pattern.</p>
+        
+        <div class="section">
+            <h2 class="sectiontitle">Solution</h2>
+        </div>
+        
+		<p><big><b><u>Pattern Detail</u></b></big></p>
+		<p><b>Category Name:</b> File - DB, Real Time, near Real Time - single file</p>		
+		<p><b>Source Messaging Endpoint:</b> EAI-PA-ME-FILEIN-EMP016 (ME-Polling Consumer, FileInput)</p>
+		<p><b>Message Channel:</b> EAI-PA-MCH-PTS-EMP010 (MCH-Guaranteed Messaging, ProcessTillSuccess), and EAI-PA-MCH-ERROR-EMP011 (MCH-Invalid Message Channel, ErrorEvent)</p>
+		<p><b>Message Routing:</b> None</p>
+		<p><b>Message Translation:</b> EAI-PA-MT-XLATE-EMP028 (MT-Message Translator, Translation)</p>
+		<p><b>Target Messaging Endpoint:</b> EAI-PA-ME-DBO-EMP002 (ME-Message Dispatcher, DBOutput)</p>
+		<p><b>Extensions:</b> EAI-PA-ME-DMC-EMP013 (ME-Idempotent Receiver, DuplicateMessageCheck)</p>
+		<p><b>System Management:</b> EAI-PA-SM-PURGE-EMP029 (PurgeEvent), and EAI-PA-SM-ARCHIVE-EMP030 (ArchiveEvent), and EAI-PA-SM-LOG-EMP031 (LogEvent)</p>
+		
+		<p><big><b><u>Pattern Flow</u></b></big></p>
+		<p><b>•</b> Single file containing a header record and multiple detail records are dropped by Sterling into IIB dropzone. Whole file is read by flow.</p>
+		<p><b>•</b> Either whole file is processed successfully or whole file is rejected and all database inserts are rolled back.</p>
+		<p><b>•</b> If whole file is rejected, job status is set to FAILED and whole file is moved to error zone with JobRunID prefix in file name.</p>
+		<p><b>•</b> Header record contains a control number which is validated against a control number table in database. Duplicate control number causes the entire file to be rejected. Non-duplicate control numbers are inserted into control number table.</p>
+		<p><b>•</b> Trailer record also contains a control number which is validated against control number in header record. Non-matching control number causes the entire file to reject.</p>
+		<p><b>•</b> Some fields on data records are transformed before record is inserted into database.</p>
+		<p><b>•</b> Input file is always archived with JobRunID prefix in file name.</p>
+		<p><b>•</b> All activity is logged using CSFLogger.</p>
+		<p><b>•</b> Purging of old files is performed by a background Cleanup job. A cleanup.list file with file purge directives is required to be present in config directory of the project. No support for this activity is needed in this pattern.</p>
+		
+		<p><big><b><u>Pattern Customization</u></b></big></p>
+		<p>Following parameters can be customized when an instance of the pattern is built.</p>
+		<p><b>•</b> Business Area</p>
+		<p><b>•</b> ProjectID</p>
+		<p><b>•</b> ModuleID</p>
+		<p><b>•</b> FlowID</p>
+		<p><b>•</b> IIB Dropzone Directory Name</p>
+		<p><b>•</b> IIB Dropzone File Name Pattern</p>
+		<p><b>•</b> Message</p>
+		<p><b>•</b> Message Domain</p>
+		<p><b>•</b> Trace File Path</p>
+		<p><b>•</b> Logical Data Source name to connect to (For JDBC it could be set at run time from property file. However, this pattern will use ODBC connectivity which needs to be determined at deployment time, and therefore will be parameterized by the pattern.)</p>
+		
+		<p><big><b><u>Next Steps</u></b></big></p>
+		<p>See <a href="https://svn.gm.com/svn/GIF_EMP_50983/applications/OTHER/50983-Patterns/SingleFileToDB/trunk/workspace/SingleFileToDBApp/readme.txt">README</a> file.</p>
+
+    </body>
+</html>
