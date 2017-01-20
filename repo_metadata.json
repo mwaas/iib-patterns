@@ -11,13 +11,13 @@
             "id": "com.gm.eai.patterns.demo",
             "name": "Demo",
             "parent_category_id": "com.gm.eai.patterns",
-            "doc_url": "https://svn.gm.com/svn/GIF_EMP_50983/common/services/PatternLib/trunk/categories/com.gm.eai.patterns.demo/overview.htm"
+            "doc_url": "https://github.com/mwaas/iib-patterns/tree/master/categories/com.gm.eai.patterns.demo/overview.htm"
         },
         {
             "id": "com.gm.eai.patterns.samples",
             "name": "Samples",
             "parent_category_id": "com.gm.eai.patterns",
-            "doc_url": "https://svn.gm.com/svn/GIF_EMP_50983/common/services/PatternLib/trunk/categories/com.gm.eai.patterns.samples/overview.htm"
+            "doc_url": "https://github.com/mwaas/iib-patterns/tree/master/categories/com.gm.eai.patterns.samples/overview.htm"
         }
      ],
 
@@ -26,7 +26,7 @@
             "id" : "com.gm.eai.demo.iibdemo",
             "name": "IIBDemoPattern",
             "category_id": "com.gm.eai.patterns.demo",
-            "doc_url": "https://svn.gm.com/svn/GIF_EMP_50983/common/services/PatternLib/trunk/patterns/com.gm.eai.demo.iibdemo/overview.htm",
+            "doc_url": "https://github.com/mwaas/iib-patterns/tree/master/patterns/com.gm.eai.demo.iibdemo/overview.htm",
             "ibm_supported": false,
             "versions" :
             [
@@ -35,7 +35,7 @@
                 "feature_group_name" : "com.gm.eai.demo.IIBDemoPattern.Feature.feature.group",
                 "nl_feature_group_name" : "com.gm.eai.demo.IIBDemoPattern.Feature.NL.feature.group",
                 "qualifier" : "1.0.0.0",
-                "patternzipURL" : "https://svn.gm.com/svn/GIF_EMP_50983/common/services/PatternLib/trunk/patterns/com.gm.eai.demo.iibdemo/IIBDemoPattern.patternzip",
+                "patternzipURL" : "https://github.com/mwaas/iib-patterns/tree/master/patterns/com.gm.eai.demo.iibdemo/IIBDemoPattern.patternzip",
                 "patternzipSize" : "125 KB"
               }
             ]
@@ -44,7 +44,7 @@
             "id" : "com.gm.eai.patterns.sftdb",
             "name": "SingleFileToDBPattern",
             "category_id": "com.gm.eai.patterns.samples",
-            "doc_url": "https://svn.gm.com/svn/GIF_EMP_50983/common/services/PatternLib/trunk/patterns/com.gm.eai.patterns.sftdb/overview.htm",
+            "doc_url": "https://github.com/mwaas/iib-patterns/tree/master/patterns/com.gm.eai.patterns.sftdb/overview.htm",
             "ibm_supported": false,
             "versions" :
             [
@@ -53,7 +53,7 @@
                 "feature_group_name" : "com.gm.eai.patterns.SingleFileToDBPattern.Feature.feature.group",
                 "nl_feature_group_name" : "com.gm.eai.patterns.SingleFileToDBPattern.Feature.NL.feature.group",
                 "qualifier" : "1.0.0.0",
-                "patternzipURL" : "https://svn.gm.com/svn/GIF_EMP_50983/common/services/PatternLib/trunk/patterns/com.gm.eai.patterns.sftdb/SingleFileToDBPattern.patternzip",
+                "patternzipURL" : "https://github.com/mwaas/iib-patterns/tree/master/patterns/com.gm.eai.patterns.sftdb/SingleFileToDBPattern.patternzip",
                 "patternzipSize" : "104 KB"
               }
             ]
